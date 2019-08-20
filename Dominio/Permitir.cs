@@ -7,5 +7,11 @@ namespace ProAspNetCoreMvcModelBinding.Models
 {
     public class Permitir
     {
+        public enum Permissao
+        {
+            Admin,
+            Usuario,
+            Convidado
+        }
     }
 }
