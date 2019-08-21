@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProAspNetCoreMvcModelBinding.Models;
 using  ProAspNetCoreMvcModelBinding.Repository;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ProAspNetCoreMvcModelBinding.Controllers
@@ -45,6 +46,32 @@ namespace ProAspNetCoreMvcModelBinding.Controllers
         public ViewResult Cadastro(Pessoa pessoa)
         {
             return View("Index", pessoa);
+        }
+        public ViewResult EnderecoBasico(EnderecoResumido endereco)
+        {
+            return View("EnderecoBasico", endereco);
+        }
+        public ViewResult EnderecoBasico2([Bind(Prefix = nameof(Pessoa.EnderecoCasa))] EnderecoResumido endereco)
+        {
+            return View("EnderecoBasico", endereco);
+        }
+        public ViewResult EnderecoBasico3([Bind(nameof(EnderecoResumido.Cidade), Prefix = nameof(Pessoa.EnderecoCasa))] EnderecoResumido endereco)
+        {
+            return View("EnderecoBasico", endereco);
+        }
+        public ViewResult Nomes(string[] nomes)
+        {
+            return View("Nomes", nomes ?? new string[0]);
+        }
+
+        public ViewResult Nomes2(IList<string> nomes)
+        {
+            return View("Nomes2", nomes ?? new List<string>());
+        }
+
+        public ViewResult Enderecos(IList<EnderecoResumido> enderecos)
+        {
+            return View("Enderecos", enderecos ?? new List<EnderecoResumido>());
         }
     }
 }
