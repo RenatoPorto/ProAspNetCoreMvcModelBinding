@@ -1,13 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using static ProAspNetCoreMvcModelBinding.Models.Permitir;
+﻿using System;
+
+using ProAspNetCoreMvcModelBinding.Dominio;
 
 namespace ProAspNetCoreMvcModelBinding.Models
 {
-    public class Pessoa : Controller
+    public class Pessoa
     {
         public int PessoaId { get; set; }
         public string Nome { get; set; }
